@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodly_clean_arc/foodly/domain/use_cases/models/notification_widgets.dart';
+import 'package:foodly_clean_arc/foodly/domain/entities/models/notification_widgets.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/constants.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/reused_widgets/reusable_button.dart';
 

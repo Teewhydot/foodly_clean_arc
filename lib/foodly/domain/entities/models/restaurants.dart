@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodly_clean_arc/foodly/domain/use_cases/models/restaurants_details_model.dart';
+import 'package:foodly_clean_arc/foodly/domain/entities/models/restaurants_details_model.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/constants.dart';
 
 class Restaurants {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodly_clean_arc/foodly/domain/use_cases/models/featured_partners.dart';
-import 'package:foodly_clean_arc/foodly/domain/use_cases/models/sea_foods.dart';
+import 'package:foodly_clean_arc/foodly/domain/entities/models/featured_partners.dart';
+import 'package:foodly_clean_arc/foodly/domain/entities/models/sea_foods.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/constants.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/reused_widgets/carousel_slider_widget.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/reused_widgets/reusable_button.dart';
