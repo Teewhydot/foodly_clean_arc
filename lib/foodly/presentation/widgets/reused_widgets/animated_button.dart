@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'reusable_button.dart';
+
 class AnimatedButton extends StatefulWidget {
   final String buttonText;
   final Function onTap;
@@ -50,25 +52,10 @@ class AnimatedButtonState extends State<AnimatedButton>
   Widget build(BuildContext context) {
     return Transform.translate(
       offset: Offset(0, 50 * (1 - _animation.value)),
-      child: Material(
-        color: Colors.blue,
-        borderRadius: BorderRadius.circular(30.0),
-        child: InkWell(
-          onTap: () {
-            widget.onTap;
-          },
-          child: Container(
-            padding: const EdgeInsets.all(15.0),
-            child: Text(
-              widget.buttonText,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 20.0,
-              ),
-            ),
-          ),
-        ),
-      ),
+      child: ReusableButton(
+          buttonText: Text(widget.buttonText),
+          onTapped: widget.onTap,
+          buttonColor: Colors.grey),
     );
   }
 }

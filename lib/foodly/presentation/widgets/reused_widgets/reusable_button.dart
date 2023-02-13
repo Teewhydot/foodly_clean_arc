@@ -7,9 +7,10 @@ class ReusableButton extends StatelessWidget {
   final Widget buttonText;
   final onTapped;
   final buttonColor;
-
-  const ReusableButton(this.buttonText, this.onTapped, this.buttonColor,
-      {super.key});
+  const ReusableButton(
+      {super.key, required this.buttonText,
+      required this.buttonColor,
+      required this.onTapped});
 
   @override
   Widget build(BuildContext context) {
