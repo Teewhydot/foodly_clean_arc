@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodly_clean_arc/foodly/presentation/pages/authentication_pages/authentication/forgot_pasword_page.dart';
 import 'package:foodly_clean_arc/foodly/presentation/pages/authentication_pages/authentication/signup_page.dart';
+import 'package:foodly_clean_arc/foodly/presentation/pages/location_screens/location_screen.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/constants.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/reused_widgets/reusable_button.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/reused_widgets/validators.dart';
@@ -187,7 +188,12 @@ class _LoginPageState extends State<LoginPage> {
                   ReusableButton(
                       buttonText: const Text("Sign in"),
                       buttonColor: kGreenColor,
-                      onTapped: () {}),
+                      onTapped: () {
+                        Navigator.pushReplacement(context,
+                            MaterialPageRoute(builder: (context) {
+                          return const LocationScreen();
+                        }));
+                      }),
                   addVerticalSpacing(20),
                   Text(
                     'Or',
