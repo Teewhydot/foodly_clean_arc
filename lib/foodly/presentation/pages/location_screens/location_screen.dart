@@ -16,6 +16,7 @@ class _LocationScreenState extends State<LocationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       backgroundColor: kWhiteColor,
       appBar: AppBar(
         elevation: 0,
@@ -37,7 +38,7 @@ class _LocationScreenState extends State<LocationScreen> {
       ),
       body: Padding(
         padding: EdgeInsets.only(left: 20.0.w, right: 20.0.w),
-        child: Column(
+        child: ListView(
           children: [
             addVerticalSpacing(24),
             const Text(
