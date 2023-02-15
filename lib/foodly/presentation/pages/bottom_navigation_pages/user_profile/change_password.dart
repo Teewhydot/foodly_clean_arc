@@ -31,8 +31,7 @@ class ChangePasswordPage extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        child: ListView(
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -109,7 +108,7 @@ class ChangePasswordPage extends StatelessWidget {
                             });
                       }));
                     }),
-                addVerticalSpacing(20),
+                addVerticalSpacing(400),
               ],
             ),
           ],
