@@ -6,6 +6,7 @@ import 'package:foodly_clean_arc/foodly/domain/core/restaurant_list/restaurant_l
     as restaurant_list;
 import 'package:foodly_clean_arc/foodly/domain/entities/models/featured_partners.dart';
 import 'package:foodly_clean_arc/foodly/domain/entities/models/restaurants.dart';
+import 'package:foodly_clean_arc/foodly/presentation/pages/bottom_navigation_pages/home_screen/filter/filter.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/constants.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/reused_widgets/all_restaurants_widget.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/reused_widgets/best_picks_widget.dart';
@@ -49,7 +50,10 @@ class _HomePageState extends State<HomePage> {
           Padding(
             padding: const EdgeInsets.only(right: 20),
             child: GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const Filter()));
+                },
                 child: const Center(
                     child: SizedBox(
                         height: 20,

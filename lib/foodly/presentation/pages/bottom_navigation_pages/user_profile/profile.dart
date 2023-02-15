@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:foodly_clean_arc/foodly/presentation/pages/authentication_pages/authentication/login_page.dart';
+import 'package:foodly_clean_arc/foodly/presentation/pages/bottom_navigation_pages/user_profile/add_social_media_screen.dart';
 import 'package:foodly_clean_arc/foodly/presentation/pages/cards_screens/cards_page.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/constants.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/reused_widgets/custom_listtile.dart';
@@ -69,7 +70,7 @@ class ProfilePage extends StatelessWidget {
                     const Text('Connect your facebook, twitter , github etc'),
                 onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return const CardsPage();
+                    return const AddSocialMedia();
                   }));
                 }),
             addVerticalSpacing(30),
