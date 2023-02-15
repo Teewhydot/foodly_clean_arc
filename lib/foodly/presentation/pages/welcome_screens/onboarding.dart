@@ -332,7 +332,7 @@ class _OnboardingState extends State<Onboarding> {
                     onTapped: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) {
-                        return const LoginPage();
+                        return const LoginWrapper();
                       }));
                     }),
                 addVerticalSpacing(90),

@@ -70,3 +70,13 @@ const loadingIndicator = LoadingIndicator(
 
     /// Optional, the stroke backgroundColor
     );
+
+const kSuccessLoginSnackBar = SnackBar(
+  content: Text('Login Successful, Welcome Back'),
+  backgroundColor: kGreenColor,
+);
+//for error login
+const kErrorLoginSnackBar = SnackBar(
+  content: Text('Login Failed, Please Try Again'),
+  backgroundColor: Colors.red,
+);
