@@ -18,8 +18,6 @@ class SignUpCubit extends Cubit<SignUpState> {
                 message: fail.mapFailureToMessage(failure),
               )), (loginEntity) async {
         emit(SignUpSuccess());
-        await Future.delayed(const Duration(seconds: 2));
-        emit(SignUpInitial());
         // emit login page after successful sign up
       });
     });

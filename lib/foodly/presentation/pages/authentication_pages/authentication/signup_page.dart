@@ -312,9 +312,19 @@ class _SignUpPageState extends State<SignUpPage> {
           ),
         );
       } else if (state is SignUpSuccess) {
-        return const Scaffold(
-          body: Center(
-            child: Text('Register Success'),
+        return Scaffold(
+          body: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Center(
+                child: Text('Register Success'),
+              ),
+              TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text('Login'))
+            ],
           ),
         );
       } else if (state is SignUpFailure) {
