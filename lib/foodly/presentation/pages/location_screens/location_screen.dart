@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:foodly_clean_arc/foodly/presentation/pages/welcome_screens/mainscreen.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/constants.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/reused_widgets/reusable_button.dart';
 
@@ -65,9 +66,12 @@ class _LocationScreenState extends State<LocationScreen> {
                       style: kGreenText,
                     ),
                   ],
-                ),
-                () async {},
-                kWhiteColor),
+                ), () async {
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) {
+                return const MainScreen();
+              }));
+            }, kWhiteColor),
             addVerticalSpacing(50),
             Text(
                 'Note: If your current location does not have a designated latitude and longitude values, the loading screen will not stop, In that case enter your address manually below.',

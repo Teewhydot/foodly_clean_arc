@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodly_clean_arc/foodly/presentation/pages/bottom_navigation_pages/home.dart';
+import 'package:foodly_clean_arc/foodly/presentation/pages/bottom_navigation_pages/home_screen/home.dart';
 import 'package:foodly_clean_arc/foodly/presentation/pages/bottom_navigation_pages/search/search.dart';
 import 'package:foodly_clean_arc/foodly/presentation/pages/bottom_navigation_pages/search/search_results.dart';
 import 'package:foodly_clean_arc/foodly/presentation/pages/bottom_navigation_pages/user_profile/profile.dart';
