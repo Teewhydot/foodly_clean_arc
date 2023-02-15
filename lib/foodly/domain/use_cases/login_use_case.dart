@@ -5,7 +5,7 @@ import 'package:foodly_clean_arc/foodly/domain/failures/failures.dart';
 class LoginUsecase {
   Future<Either<Failure, LoginEntity>> login() async {
     return Future.delayed(const Duration(seconds: 3), () {
-      return left(ServerFailure());
+      return right(LoginEntity());
     });
   }
 }
