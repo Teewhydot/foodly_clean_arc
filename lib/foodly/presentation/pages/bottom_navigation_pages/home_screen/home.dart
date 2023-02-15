@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodly_clean_arc/foodly/domain/core/featured_partners_list/featured_partners_list.dart'
+    as featured_partners_list;
+import 'package:foodly_clean_arc/foodly/domain/core/restaurant_list/restaurant_list.dart'
+    as restaurant_list;
 import 'package:foodly_clean_arc/foodly/domain/entities/models/featured_partners.dart';
 import 'package:foodly_clean_arc/foodly/domain/entities/models/restaurants.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/constants.dart';
+import 'package:foodly_clean_arc/foodly/presentation/widgets/reused_widgets/all_restaurants_widget.dart';
+import 'package:foodly_clean_arc/foodly/presentation/widgets/reused_widgets/best_picks_widget.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/reused_widgets/carousel_slider_widget.dart';
+import 'package:foodly_clean_arc/foodly/presentation/widgets/reused_widgets/featured_partners_widget.dart';
 import 'package:foodly_clean_arc/generated/assets.dart';
 
 class HomePage extends StatefulWidget {
@@ -16,71 +23,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    List<FeaturedPartner> featuredPartners = [
-      FeaturedPartner(
-        image: Assets.searchImagesFilter2,
-        name: "KFF",
-        location: "Kampala, Uganda",
-        rating: 3.5,
-        time: "30-40 min",
-      ),
-      FeaturedPartner(
-        image: Assets.imagesFp,
-        name: "The Coffee Bean & Tea Leaf",
-        location: "Kampala, Uganda",
-        rating: 3.5,
-        time: "30-40 min",
-      ),
-      FeaturedPartner(
-        image: Assets.searchImagesFilter2,
-        name: "The Coffee Bean & Tea Leaf",
-        location: "Kampala, Uganda",
-        rating: 3.5,
-        time: "30-40 min",
-      ),
-      FeaturedPartner(
-        image: Assets.searchImagesFilter3,
-        name: "The Coffee Bean & Tea Leaf",
-        location: "Kampala, Uganda",
-        rating: 3.5,
-        time: "30-40 min",
-      ),
-    ];
-    List<Restaurants> restaurants = [
-      Restaurants(
-        image: Assets.imagesFp,
-        name: "The Coffee Bean & Tea Leaf",
-        location: "Kampala, Uganda",
-        rating: 4.5,
-        numberOfRatings: 100,
-        id: 1,
-        time: "30-40 min",
-        deliveryFee: "UGX 2000",
-        foodType: ["Coffee", "Tea", "Bakery"],
-      ),
-      Restaurants(
-        image: Assets.imagesFp,
-        name: "MacDonald's",
-        location: "Kampala, Uganda",
-        rating: 4.5,
-        numberOfRatings: 100,
-        id: 1,
-        time: "30-40 min",
-        deliveryFee: "UGX 2000",
-        foodType: ["Coffee", "Tea", "Bakery"],
-      ),
-      Restaurants(
-        image: Assets.imagesFp,
-        name: "Carbon",
-        location: "Fut, Nigeria",
-        rating: 4.5,
-        numberOfRatings: 100,
-        id: 1,
-        time: "30-40 min",
-        deliveryFee: "UGX 2000",
-        foodType: ["Coffee", "Tea", "Bakery"],
-      ),
-    ];
     return Scaffold(
       backgroundColor: kWhiteColor,
       appBar: AppBar(
@@ -119,7 +61,8 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       body: HomeBody(
-          featuredPartners: featuredPartners, restaurants: restaurants),
+          featuredPartners: featured_partners_list.getFeaturedPartners(),
+          restaurants: restaurant_list.getRestaurant()),
     );
   }
 }
@@ -156,11 +99,7 @@ class HomeBody extends StatelessWidget {
                 ),
               ),
               GestureDetector(
-                onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return AllRestaurants(restaurants: restaurants);
-                  }));
-                },
+                onTap: () {},
                 child: const Text(
                   'See all',
                   style: kGreenText,
@@ -186,11 +125,7 @@ class HomeBody extends StatelessWidget {
                 ),
               ),
               GestureDetector(
-                onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return AllRestaurants(restaurants: restaurants);
-                  }));
-                },
+                onTap: () {},
                 child: const Text(
                   'See all',
                   style: kGreenText,
@@ -219,11 +154,7 @@ class HomeBody extends StatelessWidget {
                 ),
               ),
               GestureDetector(
-                onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return AllRestaurants(restaurants: restaurants);
-                  }));
-                },
+                onTap: () {},
                 child: const Text(
                   'See all',
                   style: kGreenText,
@@ -234,112 +165,6 @@ class HomeBody extends StatelessWidget {
           addVerticalSpacing(20),
           AllRestaurants(restaurants: restaurants),
         ],
-      ),
-    );
-  }
-}
-
-class AllRestaurants extends StatelessWidget {
-  const AllRestaurants({
-    Key? key,
-    required this.restaurants,
-  }) : super(key: key);
-
-  final List<Restaurants> restaurants;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 350.h,
-      child: ListView.builder(
-        itemBuilder: (context, index) {
-          return RestaurantsWidget(
-            width: 290,
-            height: 185,
-            image: restaurants[index].image,
-            name: restaurants[index].name,
-            location: restaurants[index].location,
-            rating: restaurants[index].rating,
-            numberOfRatings: restaurants[index].numberOfRatings,
-            time: restaurants[index].time,
-            deliveryFee: restaurants[index].deliveryFee,
-            foodType: restaurants[index].foodType,
-            id: 1,
-          );
-        },
-        itemCount: restaurants.length,
-        scrollDirection: Axis.horizontal,
-        physics: const ClampingScrollPhysics(),
-      ),
-    );
-  }
-}
-
-class BestPicks extends StatelessWidget {
-  const BestPicks({
-    Key? key,
-    required this.featuredPartners,
-  }) : super(key: key);
-
-  final List<FeaturedPartner> featuredPartners;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 320.h,
-      child: ListView.builder(
-        key: const PageStorageKey('best-picks'),
-        itemCount: featuredPartners.length,
-        itemBuilder: (context, index) {
-          return FeaturedPartnerWidget(
-            width: 240.0,
-            height: 160.0,
-            image: featuredPartners[index].image,
-            name: featuredPartners[index].name,
-            location: featuredPartners[index].location,
-            rating: featuredPartners[index].rating,
-            time: featuredPartners[index].time,
-            deliveryFee: 'Free Delivery',
-          );
-        },
-        scrollDirection: Axis.horizontal,
-        physics: const ClampingScrollPhysics(),
-        // children: featuredPartners,
-      ),
-    );
-  }
-}
-
-class FeaturedPartners extends StatelessWidget {
-  const FeaturedPartners({
-    Key? key,
-    required this.featuredPartners,
-  }) : super(key: key);
-
-  final List<FeaturedPartner> featuredPartners;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 300.h,
-      child: ListView.builder(
-        key: const PageStorageKey('featured-partners'),
-        itemCount: featuredPartners.length,
-        itemBuilder: (context, index) {
-          return FeaturedPartnerWidget(
-            width: 190.w,
-            height: 220.0.h,
-            image: featuredPartners[index].image,
-            name: featuredPartners[index].name,
-            location: featuredPartners[index].location,
-            rating: featuredPartners[index].rating,
-            time: featuredPartners[index].time,
-            deliveryFee: 'Free Delivery',
-          );
-        },
-        scrollDirection: Axis.horizontal,
-        physics: const ClampingScrollPhysics(),
-        // children: featuredPartners,
       ),
     );
   }

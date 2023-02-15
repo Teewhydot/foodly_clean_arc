@@ -115,9 +115,12 @@ class _LocationScreenState extends State<LocationScreen> {
                 const Text(
                   'Set Location',
                   style: whiteText,
-                ),
-                () async {},
-                kGreenColor),
+                ), () async {
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) {
+                return const MainScreen();
+              }));
+            }, kGreenColor),
           ],
         ),
       ),
