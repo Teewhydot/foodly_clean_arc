@@ -4,11 +4,11 @@ String mapFailureToMessage(Failure failures) {
   switch (failures.runtimeType) {
     case ServerFailure:
       return 'Server Failure';
-    case CacheFailure:
-      return 'Cache Failure';
+    case InvalidDetailsFailure:
+      return 'Invalid Details, Please try again';
     case InternetFailure:
-      return 'General Failure';
+      return 'Your internet connection is not working, Please try again';
     default:
-      return 'Nothing went wrong';
+      return 'Something went wrong';
   }
 }
