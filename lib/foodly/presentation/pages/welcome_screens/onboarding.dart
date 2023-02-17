@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodly_clean_arc/foodly/domain/preload_images.dart'
-    as load_images;
+import 'package:foodly_clean_arc/foodly/domain/preload_images.dart';
 import 'package:foodly_clean_arc/foodly/presentation/pages/authentication_pages/authentication/login_page.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/constants.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/reused_widgets/pages_model.dart';
@@ -17,17 +16,18 @@ class Onboarding extends StatefulWidget {
 
 class _OnboardingState extends State<Onboarding> {
   PageController pageController = PageController();
+  final LoadImages loadImages = LoadImages();
 
   @override
   void initState() {
     super.initState();
-    load_images.loadImages();
+    loadImages.loadImages();
   }
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    load_images.precacheImages(context);
+    loadImages.precacheImages(context);
   }
 
   @override
