@@ -5,7 +5,7 @@ import 'package:foodly_clean_arc/foodly/domain/failures/failures.dart';
 class SignUpUsecase {
   Future<Either<Failure, SignUpEntity>> signUp() async {
     return Future.delayed(const Duration(seconds: 5), () {
-      return right(SignUpEntity());
+      return left(GeneralFailure());
     });
   }
 }

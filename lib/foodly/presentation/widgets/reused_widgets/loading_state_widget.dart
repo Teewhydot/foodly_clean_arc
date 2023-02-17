@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodly_clean_arc/foodly/presentation/manager/sign_up_bloc/sign_up_bloc.dart';
 
 import '../constants.dart';
 
@@ -33,35 +35,45 @@ class LoadingState extends StatelessWidget {
   }
 }
 
-class SignUpFailureScreen extends StatelessWidget {
+class SignUpFailureScreen extends StatefulWidget {
   final String message;
   const SignUpFailureScreen({Key? key, required this.message})
       : super(key: key);
 
   @override
+  State<SignUpFailureScreen> createState() => _SignUpFailureScreenState();
+}
+
+class _SignUpFailureScreenState extends State<SignUpFailureScreen> {
+  @override
   Widget build(BuildContext context) {
+    final blocProvider = BlocProvider.of<SignUpcBloc>(context, listen: false);
+    blocProvider.add(SignUpFailedEvent());
     return Scaffold(
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // warning icon
-            Icon(
-              Icons.warning,
-              color: Colors.redAccent,
-              size: 70.r,
-            ),
-            Text(
-              'Registration Failed due to the below reason',
-              style: kDescTextStyle,
-            ),
-            addVerticalSpacing(20),
-            Text(message,
-                style: kBoldTextStyle.copyWith(
-                  fontSize: 20.sp,
-                  color: Colors.redAccent,
-                )),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // warning icon
+              Icon(
+                Icons.warning,
+                color: Colors.redAccent,
+                size: 70.r,
+              ),
+              Text(
+                'Registration Failed due to the below reason',
+                style: kDescTextStyle,
+              ),
+              addVerticalSpacing(20),
+              Text(widget.message,
+                  style: kBoldTextStyle.copyWith(
+                    fontSize: 20.sp,
+                    color: Colors.redAccent,
+                  )),
+            ],
+          ),
         ),
       ),
     );

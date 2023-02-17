@@ -35,7 +35,6 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final LoginBloc bloc = LoginBloc();
   final TextEditingController _emailController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _passwordController = TextEditingController();

@@ -7,15 +7,15 @@ part 'sign_up_event.dart';
 part 'sign_up_state.dart';
 
 class SignUpcBloc extends Bloc<SignUpEvent, SignUpState> {
-  SignUpcBloc() : super(SignUpInitial()) {
-    Stream<String> mapEventToState(SignUpEvent event) async* {
-      if (event is SignUpRequestedEvent) {
-        yield event.email;
-        yield event.password;
-      }
+  Stream<String> mapEventToState(SignUpEvent event) async* {
+    if (event is SignUpRequestedEvent) {
+      yield event.email;
+      yield event.password;
     }
+  }
 
-    on<SignUpEvent>((event, emit) async {
+  SignUpcBloc() : super(SignUpInitial()) {
+    on<SignUpRequestedEvent>((event, emit) async {
       final signUpUsecase = SignUpUsecase();
       emit(SignUpLoading());
       await signUpUsecase.signUp().then((value) {
@@ -26,6 +26,11 @@ class SignUpcBloc extends Bloc<SignUpEvent, SignUpState> {
           emit(SignUpSuccess());
         });
       });
+    });
+
+    on<SignUpFailedEvent>((event, emit) async {
+      await Future.delayed(const Duration(seconds: 3));
+      emit(SignUpInitial());
     });
   }
 }
