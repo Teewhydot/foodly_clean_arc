@@ -4,6 +4,7 @@ import 'package:foodly_clean_arc/foodly/presentation/widgets/constants.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/reused_widgets/pages_model.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/reused_widgets/reusable_button.dart';
 import 'package:foodly_clean_arc/generated/assets.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class Onboarding extends StatefulWidget {
   const Onboarding({Key? key}) : super(key: key);
@@ -312,13 +313,13 @@ class _OnboardingState extends State<Onboarding> {
                     ],
                   ),
                 ),
-                // Expanded(
-                //   child: SmoothPageIndicator(
-                //     controller: pageController,
-                //     count: 3,
-                //     effect: const WormEffect(),
-                //   ),
-                // ),
+                Expanded(
+                  child: SmoothPageIndicator(
+                    controller: pageController,
+                    count: 3,
+                    effect: const WormEffect(),
+                  ),
+                ),
               ],
             ),
           ),

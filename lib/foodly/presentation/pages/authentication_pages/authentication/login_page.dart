@@ -32,6 +32,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final LoginBloc bloc = LoginBloc();
   final TextEditingController _emailController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _passwordController = TextEditingController();
@@ -214,6 +215,9 @@ class _LoginPageState extends State<LoginPage> {
                                 buttonText: const Text("Sign in"),
                                 buttonColor: kGreenColor,
                                 onTapped: () {
+                                  // if (_formKey.currentState!.validate()) {
+                                  //
+                                  // }
                                   blocProvider.add(LoginRequestedEvent(
                                       email: _emailController.text,
                                       password: _passwordController.text));
