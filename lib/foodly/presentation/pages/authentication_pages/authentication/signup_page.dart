@@ -4,7 +4,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:foodly_clean_arc/foodly/presentation/manager/sign_up_cubit/sign_up_cubit.dart';
+import 'package:foodly_clean_arc/foodly/presentation/manager/sign_up_bloc/sign_up_bloc.dart';
 import 'package:foodly_clean_arc/foodly/presentation/pages/authentication_pages/authentication/forgot_pasword_page.dart';
 import 'package:foodly_clean_arc/foodly/presentation/pages/authentication_pages/authentication/login_page.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/constants.dart';
@@ -18,7 +18,7 @@ class SignUpCubitWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => SignUpCubit(),
+      create: (context) => SignUpcBloc(),
       child: const SignUpPage(),
     );
   }
@@ -39,8 +39,8 @@ class _SignUpPageState extends State<SignUpPage> {
 
   @override
   Widget build(BuildContext context) {
-    final blocProvider = BlocProvider.of<SignUpCubit>(context);
-    return BlocBuilder<SignUpCubit, SignUpState>(builder: (context, state) {
+    final blocProvider = BlocProvider.of<SignUpcBloc>(context);
+    return BlocBuilder<SignUpcBloc, SignUpState>(builder: (context, state) {
       if (state is SignUpInitial) {
         return Scaffold(
           resizeToAvoidBottomInset: false,
@@ -259,7 +259,9 @@ class _SignUpPageState extends State<SignUpPage> {
                           buttonText: const Text("Sign up"),
                           buttonColor: kGreenColor,
                           onTapped: () {
-                            blocProvider.signUp();
+                            blocProvider.add(SignUpRequestedEvent(
+                                email: emailController.text,
+                                password: passwordController.text));
                           }),
                       addVerticalSpacing(20),
                       Text(
