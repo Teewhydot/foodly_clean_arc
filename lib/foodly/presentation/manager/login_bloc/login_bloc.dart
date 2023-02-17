@@ -9,9 +9,6 @@ part 'login_event.dart';
 part 'login_state.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
-  String get email => '';
-  String get password => '';
-
   Stream<String> mapEventToState(LoginEvent event) async* {
     if (event is LoginRequestedEvent) {
       yield event.email;
@@ -21,17 +18,25 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
   LoginBloc() : super(LoginInitial()) {
     final LoginUsecase loginUsecase = LoginUsecase();
-    on<LoginRequestedEvent>((event, emit) async {
-      emit(LoginLoading());
+    on<LoginRequestedEvent>((
+      event,
+      emit,
+    ) async {
+      emit(LoginLoadingState());
       debugPrint('email: ${event.email}');
       debugPrint('password: ${event.password}');
       await loginUsecase.login(event.email, event.password).then((value) {
         value.fold(
-            (failure) => emit(LoginFailure(
+            (failure) => emit(LoginFailureState(
                   message: fail.mapFailureToMessage(failure),
                 )),
-            (loginEntity) => emit(LoginSuccess()));
+            (loginEntity) => emit(LoginSuccessState()));
       });
+    });
+
+    on<LoginFailedEvent>((event, emit) async {
+      await Future.delayed(const Duration(seconds: 3));
+      emit(LoginInitial());
     });
   }
 }

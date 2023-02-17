@@ -16,3 +16,8 @@ class LoginRequestedEvent extends LoginEvent {
   @override
   List<Object> get props => [email, password];
 }
+
+class LoginFailedEvent extends LoginEvent {
+  @override
+  List<Object?> get props => throw UnimplementedError();
+}

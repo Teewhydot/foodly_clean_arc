@@ -9,6 +9,7 @@ import 'package:foodly_clean_arc/foodly/presentation/pages/authentication_pages/
 import 'package:foodly_clean_arc/foodly/presentation/pages/authentication_pages/authentication/signup_page.dart';
 import 'package:foodly_clean_arc/foodly/presentation/pages/location_screens/location_screen.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/constants.dart';
+import 'package:foodly_clean_arc/foodly/presentation/widgets/reused_widgets/loading_state_widget.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/reused_widgets/reusable_button.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/reused_widgets/validators.dart';
 
@@ -102,95 +103,11 @@ class _LoginPageState extends State<LoginPage> {
                         key: _formKey,
                         child: Column(
                           children: [
-                            Container(
-                              width: MediaQuery.of(context).size.width,
-                              height: 70,
-                              decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(20.r))),
-                              child: TextFormField(
-                                autovalidateMode:
-                                    AutovalidateMode.onUserInteraction,
-                                controller: _emailController,
-                                validator: emailValidator,
-                                cursorColor: Colors.black,
-                                keyboardType: TextInputType.emailAddress,
-                                onChanged: (newValue) {},
-                                decoration: InputDecoration(
-                                  filled: true,
-                                  fillColor: textFieldFillColor,
-                                  focusColor: Colors.white,
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: const BorderSide(
-                                        color: kGreenColor,
-                                        width: 3,
-                                        style: BorderStyle.solid),
-                                    borderRadius: BorderRadius.circular(8.r),
-                                  ),
-                                  suffixIcon: Padding(
-                                    padding: EdgeInsets.all(8.0.r),
-                                    child: GestureDetector(
-                                        onTap: () async {},
-                                        child: const Icon(Icons.email)),
-                                  ),
-                                  border: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        width: 1,
-                                        style: BorderStyle.solid,
-                                        color: kGreenColor.withOpacity(0.5)),
-                                    borderRadius: BorderRadius.circular(8.r),
-                                  ),
-                                  hintText: 'Email',
-                                  contentPadding: EdgeInsets.symmetric(
-                                      vertical: 5.0.h, horizontal: 20.0.w),
-                                ),
-                              ),
-                            ),
+                            LoginEmailTextField(
+                                emailController: _emailController),
                             addVerticalSpacing(24),
-                            Container(
-                              width: MediaQuery.of(context).size.width,
-                              height: 70,
-                              decoration: BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(20.r))),
-                              child: TextFormField(
-                                autovalidateMode:
-                                    AutovalidateMode.onUserInteraction,
-                                controller: _passwordController,
-                                validator: passwordValidator,
-                                cursorColor: Colors.black,
-                                keyboardType: TextInputType.visiblePassword,
-                                onChanged: (newValue) {},
-                                decoration: InputDecoration(
-                                  filled: true,
-                                  fillColor: textFieldFillColor,
-                                  focusColor: Colors.white,
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: const BorderSide(
-                                        color: kGreenColor,
-                                        width: 3,
-                                        style: BorderStyle.solid),
-                                    borderRadius: BorderRadius.circular(8.r),
-                                  ),
-                                  suffixIcon: Padding(
-                                    padding: EdgeInsets.all(8.0.r),
-                                    child: GestureDetector(
-                                        onTap: () async {},
-                                        child: const Icon(Icons.lock)),
-                                  ),
-                                  border: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        width: 1,
-                                        style: BorderStyle.solid,
-                                        color: kGreenColor.withOpacity(0.5)),
-                                    borderRadius: BorderRadius.circular(8.r),
-                                  ),
-                                  hintText: 'Password',
-                                  contentPadding: EdgeInsets.symmetric(
-                                      vertical: 10.0.h, horizontal: 20.0.w),
-                                ),
-                              ),
-                            ),
+                            LoginPasswordTextField(
+                                passwordController: _passwordController),
                             addVerticalSpacing(24),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -227,7 +144,7 @@ class _LoginPageState extends State<LoginPage> {
                               'Or',
                               style: kDescTextStyle,
                             ),
-                            addVerticalSpacing(20),
+                            addVerticalSpacing(50),
                             Column(
                               children: [
                                 ReusableButton(
@@ -250,28 +167,11 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               );
-            } else if (state is LoginLoading) {
-              return Center(
-                  child: Scaffold(
-                      body: Center(
-                          child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Loading',
-                    style: kDescTextStyle.copyWith(
-                      color: kGreenColor,
-                    ),
-                  ),
-                  addHorizontalSpacing(10),
-                  SizedBox(
-                      height: 20.0.h, width: 20.0.w, child: loadingIndicator),
-                  addHorizontalSpacing(10),
-                ],
-              )))); //loading indicator
-            } else if (state is LoginSuccess) {
+            } else if (state is LoginLoadingState) {
+              return const Center(child: LoadingState()); //loading indicator
+            } else if (state is LoginSuccessState) {
               return const LocationScreen();
-            } else if (state is LoginFailure) {
+            } else if (state is LoginFailureState) {
               return LoginFailureScreen(
                 message: state.message,
               );
@@ -285,34 +185,148 @@ class _LoginPageState extends State<LoginPage> {
   }
 }
 
-//create login failure screen
-class LoginFailureScreen extends StatelessWidget {
+class LoginPasswordTextField extends StatelessWidget {
+  const LoginPasswordTextField({
+    super.key,
+    required TextEditingController passwordController,
+  }) : _passwordController = passwordController;
+
+  final TextEditingController _passwordController;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      height: 70,
+      decoration:
+          BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(20.r))),
+      child: TextFormField(
+        autovalidateMode: AutovalidateMode.onUserInteraction,
+        controller: _passwordController,
+        validator: passwordValidator,
+        cursorColor: Colors.black,
+        keyboardType: TextInputType.visiblePassword,
+        onChanged: (newValue) {},
+        decoration: InputDecoration(
+          filled: true,
+          fillColor: textFieldFillColor,
+          focusColor: Colors.white,
+          focusedBorder: OutlineInputBorder(
+            borderSide: const BorderSide(
+                color: kGreenColor, width: 3, style: BorderStyle.solid),
+            borderRadius: BorderRadius.circular(8.r),
+          ),
+          suffixIcon: Padding(
+            padding: EdgeInsets.all(8.0.r),
+            child: GestureDetector(
+                onTap: () async {}, child: const Icon(Icons.lock)),
+          ),
+          border: OutlineInputBorder(
+            borderSide: BorderSide(
+                width: 1,
+                style: BorderStyle.solid,
+                color: kGreenColor.withOpacity(0.5)),
+            borderRadius: BorderRadius.circular(8.r),
+          ),
+          hintText: 'Password',
+          contentPadding:
+              EdgeInsets.symmetric(vertical: 10.0.h, horizontal: 20.0.w),
+        ),
+      ),
+    );
+  }
+}
+
+class LoginEmailTextField extends StatelessWidget {
+  const LoginEmailTextField({
+    super.key,
+    required TextEditingController emailController,
+  }) : _emailController = emailController;
+
+  final TextEditingController _emailController;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      height: 70,
+      decoration:
+          BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(20.r))),
+      child: TextFormField(
+        autovalidateMode: AutovalidateMode.onUserInteraction,
+        controller: _emailController,
+        validator: emailValidator,
+        cursorColor: Colors.black,
+        keyboardType: TextInputType.emailAddress,
+        onChanged: (newValue) {},
+        decoration: InputDecoration(
+          filled: true,
+          fillColor: textFieldFillColor,
+          focusColor: Colors.white,
+          focusedBorder: OutlineInputBorder(
+            borderSide: const BorderSide(
+                color: kGreenColor, width: 3, style: BorderStyle.solid),
+            borderRadius: BorderRadius.circular(8.r),
+          ),
+          suffixIcon: Padding(
+            padding: EdgeInsets.all(8.0.r),
+            child: GestureDetector(
+                onTap: () async {}, child: const Icon(Icons.email)),
+          ),
+          border: OutlineInputBorder(
+            borderSide: BorderSide(
+                width: 1,
+                style: BorderStyle.solid,
+                color: kGreenColor.withOpacity(0.5)),
+            borderRadius: BorderRadius.circular(8.r),
+          ),
+          hintText: 'Email',
+          contentPadding:
+              EdgeInsets.symmetric(vertical: 5.0.h, horizontal: 20.0.w),
+        ),
+      ),
+    );
+  }
+}
+
+class LoginFailureScreen extends StatefulWidget {
   final String message;
   const LoginFailureScreen({Key? key, required this.message}) : super(key: key);
 
   @override
+  State<LoginFailureScreen> createState() => _LoginFailureScreenState();
+}
+
+class _LoginFailureScreenState extends State<LoginFailureScreen> {
+  @override
   Widget build(BuildContext context) {
+    final blocProvider = BlocProvider.of<LoginBloc>(context, listen: false);
+    blocProvider.add(LoginFailedEvent());
     return Scaffold(
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             // warning icon
-            Icon(
-              Icons.warning,
-              color: Colors.redAccent,
-              size: 70.r,
-            ),
-            Text(
-              'Login Failed due to the below reason',
-              style: kDescTextStyle,
-            ),
-            addVerticalSpacing(20),
-            Text(message,
-                style: kBoldTextStyle.copyWith(
-                  fontSize: 20.sp,
+            Column(
+              children: [
+                Icon(
+                  Icons.warning,
                   color: Colors.redAccent,
-                )),
+                  size: 70.r,
+                ),
+                Text(
+                  'Login Failed due to the below reason',
+                  style: kDescTextStyle,
+                ),
+                addVerticalSpacing(20),
+                Text(widget.message,
+                    style: kBoldTextStyle.copyWith(
+                      fontSize: 20.sp,
+                      color: Colors.redAccent,
+                    )),
+              ],
+            ),
           ],
         ),
       ),
