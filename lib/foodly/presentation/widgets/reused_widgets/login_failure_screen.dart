@@ -1,3 +1,4 @@
+import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -37,9 +38,20 @@ class _LoginFailureScreenState extends State<LoginFailureScreen> {
                 addVerticalSpacing(20),
                 Text(widget.message,
                     style: kBoldTextStyle.copyWith(
-                      fontSize: 20.sp,
+                      fontSize: 17.sp,
                       color: Colors.redAccent,
                     )),
+                addVerticalSpacing(60),
+                const CircularCountDownTimer(
+                    width: 30,
+                    height: 30,
+                    isReverse: true,
+                    textStyle: TextStyle(
+                      fontSize: 20,
+                    ),
+                    duration: 4,
+                    fillColor: kGreenColor,
+                    ringColor: Colors.transparent),
               ],
             ),
           ],
