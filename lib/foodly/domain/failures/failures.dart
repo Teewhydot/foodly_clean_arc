@@ -1,11 +1,16 @@
 abstract class Failure {}
 
-class InvalidDetailsFailure extends Failure {}
+class LoginFailure extends Failure {
+  final String loginFailureMessage;
+  LoginFailure({required this.loginFailureMessage});
+}
 
-class UserNotFoundFailure extends Failure {}
+class SignUpFailure extends Failure {
+  final String signUpFailureMessage;
+  SignUpFailure({required this.signUpFailureMessage});
+}
 
-class ServerFailure extends Failure {}
-
-class InternetFailure extends Failure {}
-
-class GeneralFailure extends Failure {}
+class GeneralFailure extends Failure {
+  String? message = 'General Failure';
+  GeneralFailure({this.message});
+}

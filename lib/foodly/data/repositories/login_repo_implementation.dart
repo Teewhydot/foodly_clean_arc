@@ -13,14 +13,9 @@ class LoginRepoImplementation implements LoginRepo {
       final LoginDataSource loginDataSource = LoginDataSourceImplementation();
       final result = await loginDataSource.logUserInFirebase(email, password);
       return right(result);
-    } on InternetException catch (_) {
-      return left(InternetFailure());
-    } on InvalidDetailsException catch (_) {
-      return left(InvalidDetailsFailure());
-    } on UserNotFoundException catch (_) {
-      return left(UserNotFoundFailure());
-    } catch (e) {
-      print(e);
+    } on LoginException catch (e) {
+      return left(LoginFailure(loginFailureMessage: e.toString()));
+    } catch (_) {
       return left(GeneralFailure());
     }
   }
