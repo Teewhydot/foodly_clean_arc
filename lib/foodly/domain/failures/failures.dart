@@ -11,6 +11,6 @@ class SignUpFailure extends Failure {
 }
 
 class GeneralFailure extends Failure {
-  String? message = 'General Failure';
+  String? message;
   GeneralFailure({this.message});
 }

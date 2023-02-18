@@ -16,7 +16,7 @@ class SignUpcBloc extends Bloc<SignUpEvent, SignUpState> {
     on<SignUpRequestedEvent>((event, emit) async {
       final signUpUsecase = SignUpUsecase();
       emit(SignUpLoading());
-      await signUpUsecase.signUp().then((value) {
+      await signUpUsecase.signUp(event.email, event.password).then((value) {
         value.fold(
             (failure) => emit(SignUpFailure(
                   message: 'k',
