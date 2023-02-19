@@ -1,4 +1,5 @@
-// This function maps the error message from firebase to a more user friendly message
+// This function maps the error message from
+// firebase to a more user friendly message
 bool isWordInSentence(String word, String sentence) {
   List<String> wordsInSentence = sentence.split(" ");
   for (String w in wordsInSentence) {
@@ -9,12 +10,14 @@ bool isWordInSentence(String word, String sentence) {
   return false;
 }
 
-// This function returns a user friendly error message to the user
+// This function returns a user friendly error
+// message to the user on login screen
 String getLoginDisplayErrorMessage(String errorMessage) {
   isWordInSentence("password", errorMessage);
   if (isWordInSentence("password", errorMessage)) {
     return "Invalid details, please try again";
-  } else if (isWordInSentence("record", errorMessage)) {
+  } else if (isWordInSentence("record", errorMessage) &&
+      isWordInSentence("corresponding", errorMessage)) {
     return "Account does not exist, please try again";
   } else if (isWordInSentence("network", errorMessage)) {
     return "Internet connection is required";
