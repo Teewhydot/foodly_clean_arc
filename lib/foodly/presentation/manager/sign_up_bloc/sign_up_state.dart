@@ -2,14 +2,14 @@ part of 'sign_up_bloc.dart';
 
 abstract class SignUpState {}
 
-class SignUpInitial extends SignUpState {}
+class SignUpInitialState extends SignUpState {}
 
-class SignUpLoading extends SignUpState {}
+class SignUpLoadingState extends SignUpState {}
 
-class SignUpSuccess extends SignUpState {}
+class SignUpSuccessState extends SignUpState {}
 
-class SignUpFailure extends SignUpState {
-  final String message;
+class SignUpFailureState extends SignUpState {
+  final RegistrationFailedEntity message;
 
-  SignUpFailure({required this.message});
+  SignUpFailureState({required this.message});
 }

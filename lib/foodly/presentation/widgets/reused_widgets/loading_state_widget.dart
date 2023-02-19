@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodly_clean_arc/foodly/domain/failures/map_failure.dart';
 import 'package:foodly_clean_arc/foodly/presentation/manager/sign_up_bloc/sign_up_bloc.dart';
 
 import '../constants.dart';
@@ -67,7 +68,7 @@ class _SignUpFailureScreenState extends State<SignUpFailureScreen> {
                 style: kDescTextStyle,
               ),
               addVerticalSpacing(20),
-              Text(widget.message,
+              Text(getSignUpDisplayErrorMessage(widget.message),
                   style: kBoldTextStyle.copyWith(
                     fontSize: 20.sp,
                     color: Colors.redAccent,

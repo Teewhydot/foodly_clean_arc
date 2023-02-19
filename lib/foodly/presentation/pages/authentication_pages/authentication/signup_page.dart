@@ -41,7 +41,7 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget build(BuildContext context) {
     final blocProvider = BlocProvider.of<SignUpcBloc>(context);
     return BlocBuilder<SignUpcBloc, SignUpState>(builder: (context, state) {
-      if (state is SignUpInitial) {
+      if (state is SignUpInitialState) {
         return Scaffold(
           resizeToAvoidBottomInset: false,
           backgroundColor: kWhiteColor,
@@ -290,11 +290,11 @@ class _SignUpPageState extends State<SignUpPage> {
             ),
           ),
         );
-      } else if (state is SignUpLoading) {
+      } else if (state is SignUpLoadingState) {
         return const Scaffold(
           body: LoadingState(),
         );
-      } else if (state is SignUpSuccess) {
+      } else if (state is SignUpSuccessState) {
         return Scaffold(
           body: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -310,8 +310,8 @@ class _SignUpPageState extends State<SignUpPage> {
             ],
           ),
         );
-      } else if (state is SignUpFailure) {
-        return SignUpFailureScreen(message: state.message);
+      } else if (state is SignUpFailureState) {
+        return SignUpFailureScreen(message: state.message.failureMessage);
       } else {
         return const Scaffold(
           body: Center(

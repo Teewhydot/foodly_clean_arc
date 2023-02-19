@@ -37,7 +37,7 @@ class _LoginFailureScreenState extends State<LoginFailureScreen> {
                   style: kDescTextStyle,
                 ),
                 addVerticalSpacing(20),
-                Text(getDisplayErrorMessage(widget.message),
+                Text(getLoginDisplayErrorMessage(widget.message),
                     style: kBoldTextStyle.copyWith(
                       fontSize: 17.sp,
                       color: Colors.redAccent,

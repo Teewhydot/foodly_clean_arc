@@ -27,7 +27,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       await loginUsecase.login(event.email, event.password).then((value) {
         value.fold(
             (failure) => emit(LoginFailureState(
-                  failureMessage: failure,
+                  message: failure,
                 )),
             (loginEntity) => emit(LoginSuccessState()));
       });
