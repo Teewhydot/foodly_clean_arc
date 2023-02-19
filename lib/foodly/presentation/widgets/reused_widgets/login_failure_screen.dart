@@ -2,6 +2,7 @@ import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodly_clean_arc/foodly/domain/failures/map_failure.dart';
 import 'package:foodly_clean_arc/foodly/presentation/manager/login_bloc/login_bloc.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/constants.dart';
 
@@ -36,7 +37,7 @@ class _LoginFailureScreenState extends State<LoginFailureScreen> {
                   style: kDescTextStyle,
                 ),
                 addVerticalSpacing(20),
-                Text(widget.message,
+                Text(getDisplayErrorMessage(widget.message),
                     style: kBoldTextStyle.copyWith(
                       fontSize: 17.sp,
                       color: Colors.redAccent,

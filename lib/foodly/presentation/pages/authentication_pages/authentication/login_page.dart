@@ -174,7 +174,7 @@ class _LoginPageState extends State<LoginPage> {
               return const LocationScreen();
             } else if (state is LoginFailureState) {
               return LoginFailureScreen(
-                message: state.message,
+                message: state.failureMessage.failureMessage,
               );
             } else {
               return const Center(child: Text('Something went wrong'));
