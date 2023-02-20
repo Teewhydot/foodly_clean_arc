@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodly_clean_arc/firebase_options.dart';
-import 'package:foodly_clean_arc/foodly/presentation/manager/location_provider/location_provider.dart';
+import 'package:foodly_clean_arc/foodly/presentation/manager/provider/location_provider/location_provider.dart';
 import 'package:foodly_clean_arc/foodly/presentation/pages/welcome_screens/welcome_screen.dart';
 import 'package:provider/provider.dart';
 

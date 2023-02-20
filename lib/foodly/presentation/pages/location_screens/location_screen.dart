@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:foodly_clean_arc/foodly/presentation/manager/location_provider/location_provider.dart';
+import 'package:foodly_clean_arc/foodly/presentation/manager/provider/location_provider/location_provider.dart';
 import 'package:foodly_clean_arc/foodly/presentation/pages/welcome_screens/mainscreen.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/constants.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/reused_widgets/loading_state_widget.dart';
