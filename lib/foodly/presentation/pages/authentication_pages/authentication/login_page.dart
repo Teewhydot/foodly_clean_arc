@@ -133,12 +133,11 @@ class _LoginPageState extends State<LoginPage> {
                                 buttonText: const Text("Sign in"),
                                 buttonColor: kGreenColor,
                                 onTapped: () {
-                                  // if (_formKey.currentState!.validate()) {
-                                  //
-                                  // }
-                                  blocProvider.add(LoginRequestedEvent(
-                                      email: _emailController.text,
-                                      password: _passwordController.text));
+                                  if (_formKey.currentState!.validate()) {
+                                    blocProvider.add(LoginRequestedEvent(
+                                        email: _emailController.text,
+                                        password: _passwordController.text));
+                                  }
                                 }),
                             addVerticalSpacing(20),
                             Text(
