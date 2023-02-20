@@ -112,7 +112,7 @@ class ProfilePage extends StatelessWidget {
                 onTap: () async {
                   Navigator.pushReplacement(context,
                       MaterialPageRoute(builder: (context) {
-                    return const LoginPage();
+                    return const LoginWrapper();
                   }));
                 }),
           ],
