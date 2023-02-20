@@ -6,6 +6,7 @@ import 'package:foodly_clean_arc/foodly/domain/core/restaurant_list/restaurant_l
     as restaurant_list;
 import 'package:foodly_clean_arc/foodly/domain/entities/models/featured_partners.dart';
 import 'package:foodly_clean_arc/foodly/domain/entities/models/restaurants.dart';
+import 'package:foodly_clean_arc/foodly/presentation/manager/location_provider/location_provider.dart';
 import 'package:foodly_clean_arc/foodly/presentation/pages/bottom_navigation_pages/home_screen/filter/filter.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/constants.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/reused_widgets/all_restaurants_widget.dart';
@@ -13,6 +14,7 @@ import 'package:foodly_clean_arc/foodly/presentation/widgets/reused_widgets/best
 import 'package:foodly_clean_arc/foodly/presentation/widgets/reused_widgets/carousel_slider_widget.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/reused_widgets/featured_partners_widget.dart';
 import 'package:foodly_clean_arc/generated/assets.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -24,6 +26,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    final locationProviderListen = Provider.of<LocationProvider>(context);
     return Scaffold(
       backgroundColor: kWhiteColor,
       appBar: AppBar(
@@ -34,7 +37,8 @@ class _HomePageState extends State<HomePage> {
           children: [
             Text('DELIVERY TO', style: kGreenText.copyWith(fontSize: 12.sp)),
             addVerticalSpacing(3),
-            Text('Location', style: kBlackText.copyWith(fontSize: 16.sp)),
+            Text(locationProviderListen.locationName,
+                style: kBlackText.copyWith(fontSize: 16.sp)),
           ],
         ),
         leading: IconButton(

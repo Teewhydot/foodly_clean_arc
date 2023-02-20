@@ -32,7 +32,7 @@ String getLoginDisplayErrorMessage(String errorMessage) {
 
 String getSignUpDisplayErrorMessage(String errorMessage) {
   if (isWordInSentence("email", errorMessage)) {
-    return "Account already exists";
+    return "Account already exists with this email";
   } else if (isWordInSentence("network", errorMessage)) {
     return "Internet connection is required";
   } else if (isWordInSentence("blocked", errorMessage)) {
