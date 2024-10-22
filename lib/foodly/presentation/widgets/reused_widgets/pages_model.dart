@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/constants.dart';
 
 class PageModel extends StatelessWidget {
@@ -19,7 +18,7 @@ class PageModel extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         addVerticalSpacing(40),
-        SizedBox(height: 350.h, width: 350.w, child: Image.asset(imageAsset)),
+        SizedBox(height: 350, width: 350, child: Image.asset(imageAsset)),
         addVerticalSpacing(10),
         Text(heading, style: kBoldTextStyle),
         addVerticalSpacing(5),

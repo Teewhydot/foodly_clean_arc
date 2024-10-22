@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodly_clean_arc/foodly/presentation/pages/bottom_navigation_pages/home_screen/home.dart';
 import 'package:foodly_clean_arc/foodly/presentation/pages/bottom_navigation_pages/search/search.dart';
 import 'package:foodly_clean_arc/foodly/presentation/pages/bottom_navigation_pages/search/search_results.dart';
@@ -8,7 +7,7 @@ import 'package:foodly_clean_arc/foodly/presentation/widgets/constants.dart';
 import 'package:foodly_clean_arc/generated/assets.dart';
 
 class MainScreen extends StatefulWidget {
-  const MainScreen({Key? key}) : super(key: key);
+  const MainScreen({super.key});
 
   @override
   State<MainScreen> createState() => _MainScreenState();
@@ -28,10 +27,10 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: Container(
-        height: 88.w,
+        height: 88,
         color: kWhiteColor,
         padding: const EdgeInsets.all(5),
-        width: 375.h,
+        width: 375,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -45,8 +44,8 @@ class _MainScreenState extends State<MainScreen> {
                       });
                     },
                     child: SizedBox(
-                        height: 54.h,
-                        width: 60.w,
+                        height: 54,
+                        width: 60,
                         child: Image.asset(pageIndex == 0
                             ? Assets.imagesHA
                             : Assets.imagesHI))),
@@ -62,8 +61,8 @@ class _MainScreenState extends State<MainScreen> {
                       });
                     },
                     child: SizedBox(
-                        height: 54.h,
-                        width: 60.w,
+                        height: 54,
+                        width: 60,
                         child: Image.asset(pageIndex == 1
                             ? Assets.imagesSA
                             : Assets.imagesSI))),
@@ -79,8 +78,8 @@ class _MainScreenState extends State<MainScreen> {
                       });
                     },
                     child: SizedBox(
-                        height: 54.h,
-                        width: 60.w,
+                        height: 54,
+                        width: 60,
                         child: Image.asset(pageIndex == 2
                             ? Assets.imagesOA
                             : Assets.imagesOI))),
@@ -96,8 +95,8 @@ class _MainScreenState extends State<MainScreen> {
                       });
                     },
                     child: SizedBox(
-                        height: 54.h,
-                        width: 60.w,
+                        height: 54,
+                        width: 60,
                         child: Image.asset(pageIndex == 3
                             ? Assets.imagesPA
                             : Assets.imagesPI))),

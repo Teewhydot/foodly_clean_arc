@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/constants.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/reused_widgets/reusable_button.dart';
 
 class AddCardDetails extends StatelessWidget {
-  const AddCardDetails({Key? key}) : super(key: key);
+  const AddCardDetails({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -50,8 +49,8 @@ class AddCardDetails extends StatelessWidget {
                 Container(
                   width: MediaQuery.of(context).size.width,
                   height: 50,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(20.r))),
+                  decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(20))),
                   child: Row(
                     children: [
                       Expanded(
@@ -71,10 +70,10 @@ class AddCardDetails extends StatelessWidget {
                                   color: kGreenColor,
                                   width: 3,
                                   style: BorderStyle.solid),
-                              borderRadius: BorderRadius.circular(8.r),
+                              borderRadius: BorderRadius.circular(8),
                             ),
                             prefixIcon: Padding(
-                              padding: EdgeInsets.all(8.0.r),
+                              padding: const EdgeInsets.all(8.0),
                               child: GestureDetector(
                                   onTap: () async {},
                                   child: const Icon(Icons.credit_card_rounded)),
@@ -84,11 +83,11 @@ class AddCardDetails extends StatelessWidget {
                                   width: 1,
                                   style: BorderStyle.solid,
                                   color: kGreenColor.withOpacity(0.5)),
-                              borderRadius: BorderRadius.circular(8.r),
+                              borderRadius: BorderRadius.circular(8),
                             ),
                             hintText: '1234 1234 1234 1234',
-                            contentPadding: EdgeInsets.symmetric(
-                                vertical: 10.0.h, horizontal: 20.0.w),
+                            contentPadding: const EdgeInsets.symmetric(
+                                vertical: 10.0, horizontal: 20.0),
                           ),
                         ),
                       ),
@@ -103,9 +102,9 @@ class AddCardDetails extends StatelessWidget {
                       child: Container(
                         width: MediaQuery.of(context).size.width,
                         height: 50,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                             borderRadius:
-                                BorderRadius.all(Radius.circular(20.r))),
+                                BorderRadius.all(Radius.circular(20))),
                         child: Row(
                           children: [
                             Expanded(
@@ -125,18 +124,18 @@ class AddCardDetails extends StatelessWidget {
                                         color: kGreenColor,
                                         width: 3,
                                         style: BorderStyle.solid),
-                                    borderRadius: BorderRadius.circular(8.r),
+                                    borderRadius: BorderRadius.circular(8),
                                   ),
                                   border: OutlineInputBorder(
                                     borderSide: BorderSide(
                                         width: 1,
                                         style: BorderStyle.solid,
                                         color: kGreenColor.withOpacity(0.5)),
-                                    borderRadius: BorderRadius.circular(8.r),
+                                    borderRadius: BorderRadius.circular(8),
                                   ),
                                   hintText: 'MM/YY',
-                                  contentPadding: EdgeInsets.symmetric(
-                                      vertical: 10.0.h, horizontal: 20.0.w),
+                                  contentPadding: const EdgeInsets.symmetric(
+                                      vertical: 10.0, horizontal: 20.0),
                                 ),
                               ),
                             ),
@@ -149,9 +148,9 @@ class AddCardDetails extends StatelessWidget {
                       child: Container(
                         width: MediaQuery.of(context).size.width,
                         height: 50,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                             borderRadius:
-                                BorderRadius.all(Radius.circular(20.r))),
+                                BorderRadius.all(Radius.circular(20))),
                         child: Row(
                           children: [
                             Expanded(
@@ -171,18 +170,18 @@ class AddCardDetails extends StatelessWidget {
                                         color: kGreenColor,
                                         width: 3,
                                         style: BorderStyle.solid),
-                                    borderRadius: BorderRadius.circular(8.r),
+                                    borderRadius: BorderRadius.circular(8),
                                   ),
                                   border: OutlineInputBorder(
                                     borderSide: BorderSide(
                                         width: 1,
                                         style: BorderStyle.solid,
                                         color: kGreenColor.withOpacity(0.5)),
-                                    borderRadius: BorderRadius.circular(8.r),
+                                    borderRadius: BorderRadius.circular(8),
                                   ),
                                   hintText: 'CVV',
-                                  contentPadding: EdgeInsets.symmetric(
-                                      vertical: 10.0.h, horizontal: 20.0.w),
+                                  contentPadding: const EdgeInsets.symmetric(
+                                      vertical: 10.0, horizontal: 20.0),
                                 ),
                               ),
                             ),

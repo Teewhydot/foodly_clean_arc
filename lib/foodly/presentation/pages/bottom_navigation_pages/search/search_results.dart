@@ -4,7 +4,7 @@ import 'package:foodly_clean_arc/foodly/presentation/widgets/constants.dart';
 import 'package:foodly_clean_arc/generated/assets.dart';
 
 class SearchResults extends StatelessWidget {
-  const SearchResults({Key? key}) : super(key: key);
+  const SearchResults({super.key});
 
   @override
   Widget build(BuildContext context) {

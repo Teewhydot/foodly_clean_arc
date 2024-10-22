@@ -3,10 +3,10 @@ import 'package:foodly_clean_arc/foodly/presentation/widgets/constants.dart';
 
 class ReusableFilterChip extends StatefulWidget {
   const ReusableFilterChip({
-    Key? key,
+    super.key,
     required this.text,
     required this.isSelected,
-  }) : super(key: key);
+  });
   final Text text;
   final bool isSelected;
 

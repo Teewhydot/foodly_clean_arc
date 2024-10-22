@@ -1,7 +1,6 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodly_clean_arc/foodly/domain/entities/models/restaurants_details_model.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/constants.dart';
 
@@ -87,8 +86,8 @@ class RestaurantsWidget extends StatelessWidget {
                         image,
                       ),
                       fit: BoxFit.fill)),
-              height: height.h,
-              width: width.w,
+              height: height,
+              width: width,
             ),
           ),
           addVerticalSpacing(16),
@@ -115,7 +114,7 @@ class RestaurantsWidget extends StatelessWidget {
                   child: Text(
                     rating.toString(),
                     style: kDescTextStyle.copyWith(
-                        color: kWhiteColor, fontSize: 12.sp),
+                        color: kWhiteColor, fontSize: 12),
                   ),
                 ),
               ),

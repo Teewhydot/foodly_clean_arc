@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodly_clean_arc/foodly/domain/entities/models/restaurants.dart';
 
 class AllRestaurants extends StatelessWidget {
   const AllRestaurants({
-    Key? key,
+    super.key,
     required this.restaurants,
-  }) : super(key: key);
+  });
 
   final List<Restaurants> restaurants;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 350.h,
+      height: 350,
       child: ListView.builder(
         itemBuilder: (context, index) {
           return RestaurantsWidget(

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodly_clean_arc/foodly/domain/entities/models/restaurants_details_model.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/constants.dart';
 
@@ -30,7 +29,7 @@ class FeaturedPartnerWidget extends StatelessWidget {
   final double height;
 
   const FeaturedPartnerWidget({
-    Key? key,
+    super.key,
     required this.width,
     required this.height,
     required this.image,
@@ -39,7 +38,7 @@ class FeaturedPartnerWidget extends StatelessWidget {
     required this.rating,
     required this.time,
     required this.deliveryFee,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -73,8 +72,8 @@ class FeaturedPartnerWidget extends StatelessWidget {
                           image,
                         ),
                         fit: BoxFit.fill)),
-                height: height.h,
-                width: width.w,
+                height: height,
+                width: width,
               ),
             ),
           ),
@@ -99,12 +98,12 @@ class FeaturedPartnerWidget extends StatelessWidget {
                         child: Text(
                           rating.toString(),
                           style: kDescTextStyle.copyWith(
-                              color: kWhiteColor, fontSize: 12.sp),
+                              color: kWhiteColor, fontSize: 12),
                         ),
                       ),
                     ),
                     addHorizontalSpacing(12),
-                    Text(time, style: kDescTextStyle.copyWith(fontSize: 14.sp)),
+                    Text(time, style: kDescTextStyle.copyWith(fontSize: 14)),
                     addHorizontalSpacing(8),
                     const CircleAvatar(
                       radius: 3,
@@ -113,7 +112,7 @@ class FeaturedPartnerWidget extends StatelessWidget {
                     addHorizontalSpacing(8),
                     Text(
                       deliveryFee,
-                      style: kDescTextStyle.copyWith(fontSize: 14.sp),
+                      style: kDescTextStyle.copyWith(fontSize: 14),
                     ),
                   ],
                 ),

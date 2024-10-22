@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SearchResultModel {
   final String image;
@@ -36,8 +35,8 @@ class SearchResultWidget extends StatelessWidget {
                       image,
                     ),
                     fit: BoxFit.fill)),
-            height: height.h,
-            width: width.w,
+            height: height,
+            width: width,
           ),
         ),
         Text(name),

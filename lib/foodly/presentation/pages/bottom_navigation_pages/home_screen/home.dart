@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodly_clean_arc/foodly/domain/core/featured_partners_list/featured_partners_list.dart'
     as featured_partners_list;
 import 'package:foodly_clean_arc/foodly/domain/core/restaurant_list/restaurant_list.dart'
@@ -17,7 +16,7 @@ import 'package:foodly_clean_arc/generated/assets.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -35,10 +34,10 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: kWhiteColor,
         title: Column(
           children: [
-            Text('DELIVERY TO', style: kGreenText.copyWith(fontSize: 12.sp)),
+            Text('DELIVERY TO', style: kGreenText.copyWith(fontSize: 12)),
             addVerticalSpacing(3),
             Text(locationProviderListen.locationName,
-                style: kBlackText.copyWith(fontSize: 16.sp)),
+                style: kBlackText.copyWith(fontSize: 16)),
           ],
         ),
         leading: IconButton(
@@ -77,10 +76,10 @@ class _HomePageState extends State<HomePage> {
 
 class HomeBody extends StatelessWidget {
   const HomeBody({
-    Key? key,
+    super.key,
     required this.featuredPartners,
     required this.restaurants,
-  }) : super(key: key);
+  });
 
   final List<FeaturedPartner> featuredPartners;
   final List<Restaurants> restaurants;
@@ -88,7 +87,7 @@ class HomeBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: 10.w, right: 10.w),
+      padding: const EdgeInsets.only(left: 10, right: 10),
       child: ListView(
         key: const PageStorageKey('home'),
         children: [
@@ -103,7 +102,7 @@ class HomeBody extends StatelessWidget {
               Text(
                 'Featured partners',
                 style: kTitleTextStyle.copyWith(
-                  fontSize: 25.sp,
+                  fontSize: 25,
                 ),
               ),
               GestureDetector(
@@ -117,8 +116,8 @@ class HomeBody extends StatelessWidget {
           ),
           FeaturedPartners(featuredPartners: featuredPartners),
           SizedBox(
-            width: 335.w,
-            height: 170.h,
+            width: 335,
+            height: 170,
             child: Image.asset(Assets.imagesPromo),
           ),
           addVerticalSpacing(20),
@@ -129,7 +128,7 @@ class HomeBody extends StatelessWidget {
               Text(
                 'Best picks',
                 style: kTitleTextStyle.copyWith(
-                  fontSize: 25.sp,
+                  fontSize: 25,
                 ),
               ),
               GestureDetector(
@@ -145,7 +144,7 @@ class HomeBody extends StatelessWidget {
           Text(
             'Restaurants by teams',
             style: kTitleTextStyle.copyWith(
-              fontSize: 25.sp,
+              fontSize: 25,
             ),
           ),
           addVerticalSpacing(24),
@@ -158,7 +157,7 @@ class HomeBody extends StatelessWidget {
               Text(
                 'All restaurants',
                 style: kTitleTextStyle.copyWith(
-                  fontSize: 25.sp,
+                  fontSize: 25,
                 ),
               ),
               GestureDetector(

@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodly_clean_arc/foodly/domain/entities/models/featured_partners.dart';
 
 class BestPicks extends StatelessWidget {
   const BestPicks({
-    Key? key,
+    super.key,
     required this.featuredPartners,
-  }) : super(key: key);
+  });
 
   final List<FeaturedPartner> featuredPartners;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 320.h,
+      height: 320,
       child: ListView.builder(
         key: const PageStorageKey('best-picks'),
         itemCount: featuredPartners.length,

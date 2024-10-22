@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_typing_uninitialized_variables
 
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodly_clean_arc/foodly/presentation/pages/bottom_navigation_pages/search/search.dart';
 
 class FilterType {
@@ -44,8 +43,8 @@ class FilterTypeWidget extends StatelessWidget {
                           image,
                         ),
                         fit: BoxFit.fill)),
-                height: 184.h,
-                width: 164.w,
+                height: 184,
+                width: 164,
               ),
             ),
           ),
@@ -80,8 +79,8 @@ class FilterTypeWidgetClone extends StatelessWidget {
                           image,
                         ),
                         fit: BoxFit.fill)),
-                height: 184.h,
-                width: 164.w,
+                height: 184,
+                width: 164,
               ),
             ),
           ),

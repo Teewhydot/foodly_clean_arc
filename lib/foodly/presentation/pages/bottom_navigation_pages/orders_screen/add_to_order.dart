@@ -1,13 +1,12 @@
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/constants.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/reused_widgets/carousel_slider_widget.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/reused_widgets/reusable_button.dart';
 import 'package:foodly_clean_arc/generated/assets.dart';
 
 class AddToOrderPage extends StatefulWidget {
-  const AddToOrderPage({Key? key}) : super(key: key);
+  const AddToOrderPage({super.key});
 
   @override
   State<AddToOrderPage> createState() => _AddToOrderPageState();
@@ -29,7 +28,7 @@ class _AddToOrderPageState extends State<AddToOrderPage> {
           builder: (context, constraints) => ListView(
             children: [
               SizedBox(
-                height: 280.h,
+                height: 280,
                 child: Stack(
                   children: [
                     const CustomCarouselWidget(
@@ -374,9 +373,9 @@ class SpecialInstructions extends StatelessWidget {
               child: Container(
                 height: 50,
                 color: Colors.white,
-                child: Row(
+                child: const Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: const [
+                  children: [
                     Text('Add special instructions'),
                     Icon(Icons.arrow_forward_ios),
                   ],
@@ -401,15 +400,15 @@ class SpecialInstructions extends StatelessWidget {
                           color: Colors.transparent,
                           width: 0,
                           style: BorderStyle.none),
-                      borderRadius: BorderRadius.circular(25.r),
+                      borderRadius: BorderRadius.circular(25),
                     ),
                     border: OutlineInputBorder(
                       borderSide:
                           const BorderSide(width: 0, style: BorderStyle.none),
                       borderRadius: BorderRadius.circular(25),
                     ),
-                    contentPadding: EdgeInsets.symmetric(
-                        vertical: 10.0.h, horizontal: 20.0.w),
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: 10.0, horizontal: 20.0),
                   ),
                 ),
                 addVerticalSpacing(10),
@@ -418,7 +417,7 @@ class SpecialInstructions extends StatelessWidget {
                   child: Container(
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(25.r),
+                        borderRadius: BorderRadius.circular(25),
                       ),
                       height: 50,
                       width: 100,
@@ -438,7 +437,7 @@ class SpecialInstructions extends StatelessWidget {
 }
 
 class ExpansionTile extends StatefulWidget {
-  const ExpansionTile({Key? key}) : super(key: key);
+  const ExpansionTile({super.key});
 
   @override
   State<ExpansionTile> createState() => _ExpansionTileState();
@@ -462,9 +461,9 @@ class _ExpansionTileState extends State<ExpansionTile> {
             return Container(
               height: 50,
               color: Colors.white,
-              child: Row(
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
+                children: [
                   Text('Add special instructions'),
                 ],
               ),
@@ -487,7 +486,7 @@ class _ExpansionTileState extends State<ExpansionTile> {
                       color: Colors.transparent,
                       width: 0,
                       style: BorderStyle.none),
-                  borderRadius: BorderRadius.circular(25.r),
+                  borderRadius: BorderRadius.circular(25),
                 ),
                 border: OutlineInputBorder(
                   borderSide:
@@ -495,7 +494,7 @@ class _ExpansionTileState extends State<ExpansionTile> {
                   borderRadius: BorderRadius.circular(25),
                 ),
                 contentPadding:
-                    EdgeInsets.symmetric(vertical: 10.0.h, horizontal: 20.0.w),
+                    const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
               ),
             ),
             addVerticalSpacing(10),
@@ -504,7 +503,7 @@ class _ExpansionTileState extends State<ExpansionTile> {
               child: Container(
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(25.r),
+                    borderRadius: BorderRadius.circular(25),
                   ),
                   height: 50,
                   width: 100,

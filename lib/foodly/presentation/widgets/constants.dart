@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 
 final scaffoldSpacing = addVerticalSpacing(40);
 
 Widget addVerticalSpacing(double height) {
   return SizedBox(
-    height: height.h,
+    height: height,
   );
 }
 
 Widget addHorizontalSpacing(double width) {
   return SizedBox(
-    width: width.w,
+    width: width,
   );
 }
 
@@ -79,4 +78,9 @@ const kSuccessLoginSnackBar = SnackBar(
 const kErrorLoginSnackBar = SnackBar(
   content: Text('Login Failed, Please Try Again'),
   backgroundColor: Colors.red,
+);
+
+const kUnderDevelopment = SnackBar(
+  content: Text('Feature under development'),
+  backgroundColor: Colors.yellowAccent,
 );

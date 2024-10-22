@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_typing_uninitialized_variables
 
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodly_clean_arc/foodly/presentation/pages/welcome_screens/mainscreen.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/constants.dart';
 
@@ -12,12 +11,12 @@ class SuccessActionWidget extends StatelessWidget {
   final onPressed;
 
   const SuccessActionWidget({
-    Key? key,
+    super.key,
     required this.heading,
     required this.subHeading,
     required this.buttonText,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +33,7 @@ class SuccessActionWidget extends StatelessWidget {
               width: 300,
               decoration: BoxDecoration(
                 color: kWhiteColor,
-                borderRadius: BorderRadius.circular(15.r),
+                borderRadius: BorderRadius.circular(15),
               ),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -94,7 +93,7 @@ class SuccessActionWidget extends StatelessWidget {
 }
 
 class FailedActionWidget extends StatelessWidget {
-  const FailedActionWidget({Key? key}) : super(key: key);
+  const FailedActionWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -111,7 +110,7 @@ class FailedActionWidget extends StatelessWidget {
               width: 300,
               decoration: BoxDecoration(
                 color: kWhiteColor,
-                borderRadius: BorderRadius.circular(15.r),
+                borderRadius: BorderRadius.circular(15),
               ),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),

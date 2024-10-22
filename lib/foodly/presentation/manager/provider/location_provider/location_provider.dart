@@ -6,26 +6,26 @@ import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;
 
 class LocationProvider extends ChangeNotifier {
-  double _lat = 0.0;
-  double _long = 0.0;
+  double _latitude = 0.0;
+  double _longitude = 0.0;
   String appId = '1e2c66dbb32db6e904786288b45ded3e';
   String locationName = '';
-  bool showSpinner = false;
+  bool _showSpinner = false;
 
-  double get lat => _lat;
+  double get lat => _latitude;
 
   String get location => locationName;
 
-  double get long => _long;
-  bool get spinner => showSpinner;
+  double get long => _longitude;
+  bool get spinner => _showSpinner;
 
   void startSpinning() {
-    showSpinner = true;
+    _showSpinner = true;
     notifyListeners();
   }
 
   void stopSpinning() {
-    showSpinner = false;
+    _showSpinner = false;
     notifyListeners();
   }
 
@@ -63,8 +63,8 @@ class LocationProvider extends ChangeNotifier {
       final position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.low,
       );
-      _lat = position.latitude;
-      _long = position.longitude;
+      _latitude = position.latitude;
+      _longitude = position.longitude;
       notifyListeners();
     } catch (e) {
       rethrow;

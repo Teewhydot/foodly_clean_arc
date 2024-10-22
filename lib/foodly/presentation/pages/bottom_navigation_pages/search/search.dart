@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodly_clean_arc/foodly/domain/entities/models/filter_type.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/constants.dart';
 import 'package:foodly_clean_arc/generated/assets.dart';
 
 class SearchRestaurant extends StatelessWidget {
-  const SearchRestaurant({Key? key}) : super(key: key);
+  const SearchRestaurant({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +61,7 @@ class SearchRestaurant extends StatelessWidget {
                     color: Colors.transparent,
                     width: 0,
                     style: BorderStyle.none),
-                borderRadius: BorderRadius.circular(15.r),
+                borderRadius: BorderRadius.circular(15),
               ),
               border: OutlineInputBorder(
                 borderSide: const BorderSide(width: 0, style: BorderStyle.none),
@@ -70,7 +69,7 @@ class SearchRestaurant extends StatelessWidget {
               ),
               hintText: 'Search on foodly',
               contentPadding:
-                  EdgeInsets.symmetric(vertical: 10.0.h, horizontal: 20.0.w),
+                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
             ),
           ),
           addVerticalSpacing(20),
@@ -94,7 +93,7 @@ class SearchRestaurant extends StatelessWidget {
 }
 
 class SearchFood extends StatelessWidget {
-  const SearchFood({Key? key}) : super(key: key);
+  const SearchFood({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -150,7 +149,7 @@ class SearchFood extends StatelessWidget {
                     color: Colors.transparent,
                     width: 0,
                     style: BorderStyle.none),
-                borderRadius: BorderRadius.circular(15.r),
+                borderRadius: BorderRadius.circular(15),
               ),
               border: OutlineInputBorder(
                 borderSide: const BorderSide(width: 0, style: BorderStyle.none),
@@ -158,7 +157,7 @@ class SearchFood extends StatelessWidget {
               ),
               hintText: 'Search on foodly',
               contentPadding:
-                  EdgeInsets.symmetric(vertical: 10.0.h, horizontal: 20.0.w),
+                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
             ),
           ),
           addVerticalSpacing(20),

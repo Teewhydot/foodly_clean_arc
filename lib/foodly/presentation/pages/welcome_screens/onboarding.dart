@@ -8,7 +8,7 @@ import 'package:foodly_clean_arc/generated/assets.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class Onboarding extends StatefulWidget {
-  const Onboarding({Key? key}) : super(key: key);
+  const Onboarding({super.key});
 
   @override
   State<Onboarding> createState() => _OnboardingState();

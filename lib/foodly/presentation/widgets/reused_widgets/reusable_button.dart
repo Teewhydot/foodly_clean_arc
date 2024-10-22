@@ -25,8 +25,8 @@ class ReusableButton extends StatelessWidget {
               child: ElevatedButton(
                 style: ButtonStyle(
                     //  foregroundColor: MaterialStateProperty.all(Colors.blue.shade800),
-                    backgroundColor: MaterialStateProperty.all(buttonColor),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    backgroundColor: WidgetStateProperty.all(buttonColor),
+                    shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10.0),
                             side:
@@ -62,8 +62,8 @@ class LocationButton extends StatelessWidget {
                   width: double.infinity, height: 50),
               child: TextButton(
                 style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(buttonColor),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    backgroundColor: WidgetStateProperty.all(buttonColor),
+                    shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10.0),
                             side: const BorderSide(color: kGreenColor)))),

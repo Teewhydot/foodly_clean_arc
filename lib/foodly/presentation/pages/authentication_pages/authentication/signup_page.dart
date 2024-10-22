@@ -3,7 +3,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodly_clean_arc/foodly/presentation/manager/sign_up_bloc/sign_up_bloc.dart';
 import 'package:foodly_clean_arc/foodly/presentation/pages/authentication_pages/authentication/forgot_pasword_page.dart';
 import 'package:foodly_clean_arc/foodly/presentation/pages/authentication_pages/authentication/login_page.dart';
@@ -13,7 +12,7 @@ import 'package:foodly_clean_arc/foodly/presentation/widgets/reused_widgets/reus
 import 'package:foodly_clean_arc/foodly/presentation/widgets/reused_widgets/validators.dart';
 
 class SignUpCubitWrapper extends StatelessWidget {
-  const SignUpCubitWrapper({Key? key}) : super(key: key);
+  const SignUpCubitWrapper({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +24,7 @@ class SignUpCubitWrapper extends StatelessWidget {
 }
 
 class SignUpPage extends StatefulWidget {
-  const SignUpPage({Key? key}) : super(key: key);
+  const SignUpPage({super.key});
 
   @override
   State<SignUpPage> createState() => _SignUpPageState();
@@ -64,7 +63,7 @@ class _SignUpPageState extends State<SignUpPage> {
             ),
           ),
           body: Padding(
-            padding: EdgeInsets.only(left: 20.0.w, right: 20.0.w),
+            padding: const EdgeInsets.only(left: 20.0, right: 20.0),
             child: ListView(
               children: [
                 addVerticalSpacing(24),
@@ -107,13 +106,13 @@ class _SignUpPageState extends State<SignUpPage> {
                       Container(
                         width: MediaQuery.of(context).size.width,
                         height: 70,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                             borderRadius:
-                                BorderRadius.all(Radius.circular(20.r))),
+                                BorderRadius.all(Radius.circular(20))),
                         child: TextFormField(
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           controller: fullNameController,
-                          validator: nameValidator,
+                          validator: nameValidator.call,
                           cursorColor: Colors.black,
                           keyboardType: TextInputType.name,
                           onChanged: (newValue) {},
@@ -126,10 +125,10 @@ class _SignUpPageState extends State<SignUpPage> {
                                   color: kGreenColor,
                                   width: 3,
                                   style: BorderStyle.solid),
-                              borderRadius: BorderRadius.circular(8.r),
+                              borderRadius: BorderRadius.circular(8),
                             ),
                             suffixIcon: Padding(
-                              padding: EdgeInsets.all(8.0.r),
+                              padding: const EdgeInsets.all(8.0),
                               child: GestureDetector(
                                   onTap: () async {},
                                   child: const Icon(Icons.email)),
@@ -139,11 +138,11 @@ class _SignUpPageState extends State<SignUpPage> {
                                   width: 1,
                                   style: BorderStyle.solid,
                                   color: kGreenColor.withOpacity(0.5)),
-                              borderRadius: BorderRadius.circular(8.r),
+                              borderRadius: BorderRadius.circular(8),
                             ),
                             hintText: 'Full Name',
-                            contentPadding: EdgeInsets.symmetric(
-                                vertical: 5.0.h, horizontal: 20.0.w),
+                            contentPadding: const EdgeInsets.symmetric(
+                                vertical: 5.0, horizontal: 20.0),
                           ),
                         ),
                       ),
@@ -151,13 +150,13 @@ class _SignUpPageState extends State<SignUpPage> {
                       Container(
                         width: MediaQuery.of(context).size.width,
                         height: 70,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                             borderRadius:
-                                BorderRadius.all(Radius.circular(20.r))),
+                                BorderRadius.all(Radius.circular(20))),
                         child: TextFormField(
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           controller: emailController,
-                          validator: emailValidator,
+                          validator: emailValidator.call,
                           cursorColor: Colors.black,
                           keyboardType: TextInputType.emailAddress,
                           onChanged: (newValue) {},
@@ -170,10 +169,10 @@ class _SignUpPageState extends State<SignUpPage> {
                                   color: kGreenColor,
                                   width: 3,
                                   style: BorderStyle.solid),
-                              borderRadius: BorderRadius.circular(8.r),
+                              borderRadius: BorderRadius.circular(8),
                             ),
                             suffixIcon: Padding(
-                              padding: EdgeInsets.all(8.0.r),
+                              padding: const EdgeInsets.all(8.0),
                               child: GestureDetector(
                                   onTap: () async {},
                                   child: const Icon(Icons.email)),
@@ -183,11 +182,11 @@ class _SignUpPageState extends State<SignUpPage> {
                                   width: 1,
                                   style: BorderStyle.solid,
                                   color: kGreenColor.withOpacity(0.5)),
-                              borderRadius: BorderRadius.circular(8.r),
+                              borderRadius: BorderRadius.circular(8),
                             ),
                             hintText: 'Email',
-                            contentPadding: EdgeInsets.symmetric(
-                                vertical: 5.0.h, horizontal: 20.0.w),
+                            contentPadding: const EdgeInsets.symmetric(
+                                vertical: 5.0, horizontal: 20.0),
                           ),
                         ),
                       ),
@@ -195,13 +194,13 @@ class _SignUpPageState extends State<SignUpPage> {
                       Container(
                         width: MediaQuery.of(context).size.width,
                         height: 70,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                             borderRadius:
-                                BorderRadius.all(Radius.circular(20.r))),
+                                BorderRadius.all(Radius.circular(20))),
                         child: TextFormField(
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           controller: passwordController,
-                          validator: passwordValidator,
+                          validator: passwordValidator.call,
                           cursorColor: Colors.black,
                           keyboardType: TextInputType.emailAddress,
                           onChanged: (newValue) {},
@@ -214,10 +213,10 @@ class _SignUpPageState extends State<SignUpPage> {
                                   color: kGreenColor,
                                   width: 3,
                                   style: BorderStyle.solid),
-                              borderRadius: BorderRadius.circular(8.r),
+                              borderRadius: BorderRadius.circular(8),
                             ),
                             suffixIcon: Padding(
-                              padding: EdgeInsets.all(8.0.r),
+                              padding: const EdgeInsets.all(8),
                               child: GestureDetector(
                                   onTap: () async {},
                                   child: const Icon(Icons.email)),
@@ -227,11 +226,11 @@ class _SignUpPageState extends State<SignUpPage> {
                                   width: 1,
                                   style: BorderStyle.solid,
                                   color: kGreenColor.withOpacity(0.5)),
-                              borderRadius: BorderRadius.circular(8.r),
+                              borderRadius: BorderRadius.circular(8),
                             ),
                             hintText: 'Password',
-                            contentPadding: EdgeInsets.symmetric(
-                                vertical: 5.0.h, horizontal: 20.0.w),
+                            contentPadding: const EdgeInsets.symmetric(
+                                vertical: 5.0, horizontal: 20.0),
                           ),
                         ),
                       ),
@@ -249,14 +248,14 @@ class _SignUpPageState extends State<SignUpPage> {
                             child: Text(
                               'Forgot Password?',
                               style: kDescTextStyle.copyWith(
-                                fontSize: 12.sp,
+                                fontSize: 12,
                               ),
                             ),
                           ),
                         ],
                       ),
                       ReusableButton(
-                          buttonText: const Text("Sign up"),
+                          buttonText: const Text("Sign up", style: whiteText),
                           buttonColor: kGreenColor,
                           onTapped: () {
                             blocProvider.add(SignUpRequestedEvent(
@@ -272,14 +271,22 @@ class _SignUpPageState extends State<SignUpPage> {
                       Column(
                         children: [
                           ReusableButton(
-                              buttonText: const Text("Connect with facebook"),
+                              buttonText: const Text("Connect with facebook", style: whiteText),
                               buttonColor: kGreenColor,
-                              onTapped: () {}),
+                              onTapped: () {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  kUnderDevelopment,
+                                );
+                              }),
                           addVerticalSpacing(20),
                           ReusableButton(
-                              buttonText: const Text("Connect with google"),
+                              buttonText: const Text("Connect with google", style: whiteText),
                               buttonColor: kGreenColor,
-                              onTapped: () {}),
+                              onTapped: () {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  kUnderDevelopment,
+                                );
+                              }),
                           addVerticalSpacing(50),
                         ],
                       )

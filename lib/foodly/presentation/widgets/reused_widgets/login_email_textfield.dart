@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/constants.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/reused_widgets/validators.dart';
 
@@ -17,11 +16,11 @@ class LoginEmailTextField extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       height: 70,
       decoration:
-          BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(20.r))),
+          const BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(20))),
       child: TextFormField(
         autovalidateMode: AutovalidateMode.onUserInteraction,
         controller: _emailController,
-        validator: emailValidator,
+        validator: emailValidator.call,
         cursorColor: Colors.black,
         keyboardType: TextInputType.emailAddress,
         onChanged: (newValue) {},
@@ -32,10 +31,10 @@ class LoginEmailTextField extends StatelessWidget {
           focusedBorder: OutlineInputBorder(
             borderSide: const BorderSide(
                 color: kGreenColor, width: 3, style: BorderStyle.solid),
-            borderRadius: BorderRadius.circular(8.r),
+            borderRadius: BorderRadius.circular(8),
           ),
           suffixIcon: Padding(
-            padding: EdgeInsets.all(8.0.r),
+            padding: const EdgeInsets.all(8.0),
             child: GestureDetector(
                 onTap: () async {}, child: const Icon(Icons.email)),
           ),
@@ -44,11 +43,11 @@ class LoginEmailTextField extends StatelessWidget {
                 width: 1,
                 style: BorderStyle.solid,
                 color: kGreenColor.withOpacity(0.5)),
-            borderRadius: BorderRadius.circular(8.r),
+            borderRadius: BorderRadius.circular(8),
           ),
           hintText: 'Email',
           contentPadding:
-              EdgeInsets.symmetric(vertical: 5.0.h, horizontal: 20.0.w),
+              const EdgeInsets.symmetric(vertical: 5.0, horizontal: 20.0),
         ),
       ),
     );

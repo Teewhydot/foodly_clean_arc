@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/constants.dart';
 
 class ResetSuccess extends StatelessWidget {
-  const ResetSuccess({Key? key}) : super(key: key);
+  const ResetSuccess({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +27,7 @@ class ResetSuccess extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.only(left: 20.0.w, right: 20.0.w),
+        padding: const EdgeInsets.only(left: 20.0, right: 20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

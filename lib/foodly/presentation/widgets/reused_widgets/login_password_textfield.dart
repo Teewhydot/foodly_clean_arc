@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/constants.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/reused_widgets/validators.dart';
 
@@ -17,11 +16,11 @@ class LoginPasswordTextField extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       height: 70,
       decoration:
-          BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(20.r))),
+          const BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(20))),
       child: TextFormField(
         autovalidateMode: AutovalidateMode.onUserInteraction,
         controller: _passwordController,
-        validator: passwordValidator,
+        validator: passwordValidator.call,
         cursorColor: Colors.black,
         keyboardType: TextInputType.visiblePassword,
         onChanged: (newValue) {},
@@ -32,10 +31,10 @@ class LoginPasswordTextField extends StatelessWidget {
           focusedBorder: OutlineInputBorder(
             borderSide: const BorderSide(
                 color: kGreenColor, width: 3, style: BorderStyle.solid),
-            borderRadius: BorderRadius.circular(8.r),
+            borderRadius: BorderRadius.circular(8),
           ),
           suffixIcon: Padding(
-            padding: EdgeInsets.all(8.0.r),
+            padding: const EdgeInsets.all(8.0),
             child: GestureDetector(
                 onTap: () async {}, child: const Icon(Icons.lock)),
           ),
@@ -44,11 +43,11 @@ class LoginPasswordTextField extends StatelessWidget {
                 width: 1,
                 style: BorderStyle.solid,
                 color: kGreenColor.withOpacity(0.5)),
-            borderRadius: BorderRadius.circular(8.r),
+            borderRadius: BorderRadius.circular(8),
           ),
           hintText: 'Password',
           contentPadding:
-              EdgeInsets.symmetric(vertical: 10.0.h, horizontal: 20.0.w),
+              const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
         ),
       ),
     );

@@ -5,7 +5,7 @@ import 'package:foodly_clean_arc/foodly/presentation/widgets/reused_widgets/reus
 import 'package:foodly_clean_arc/generated/assets.dart';
 
 class CardsPage extends StatelessWidget {
-  const CardsPage({Key? key}) : super(key: key);
+  const CardsPage({super.key});
 
   @override
   Widget build(BuildContext context) {

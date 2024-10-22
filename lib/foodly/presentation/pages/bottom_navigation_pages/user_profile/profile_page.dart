@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/constants.dart';
 
 class ProfileInfoPage extends StatelessWidget {
-  const ProfileInfoPage({Key? key}) : super(key: key);
+  const ProfileInfoPage({super.key});
 
   @override
   Widget build(BuildContext context) {

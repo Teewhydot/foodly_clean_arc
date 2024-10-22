@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodly_clean_arc/foodly/domain/failures/map_failure.dart';
 import 'package:foodly_clean_arc/foodly/presentation/manager/sign_up_bloc/sign_up_bloc.dart';
 
@@ -26,7 +25,7 @@ class LoadingState extends StatelessWidget {
                 ),
               ),
               addHorizontalSpacing(10),
-              SizedBox(height: 20.0.h, width: 20.0.w, child: loadingIndicator),
+              const SizedBox(height: 20.0, width: 20.0, child: loadingIndicator),
               addHorizontalSpacing(10),
             ],
           ),
@@ -38,8 +37,7 @@ class LoadingState extends StatelessWidget {
 
 class SignUpFailureScreen extends StatefulWidget {
   final String message;
-  const SignUpFailureScreen({Key? key, required this.message})
-      : super(key: key);
+  const SignUpFailureScreen({super.key, required this.message});
 
   @override
   State<SignUpFailureScreen> createState() => _SignUpFailureScreenState();
@@ -58,10 +56,10 @@ class _SignUpFailureScreenState extends State<SignUpFailureScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // warning icon
-              Icon(
+              const Icon(
                 Icons.warning,
                 color: Colors.redAccent,
-                size: 70.r,
+                size: 70,
               ),
               Text(
                 'Registration Failed due to the below reason',
@@ -70,7 +68,7 @@ class _SignUpFailureScreenState extends State<SignUpFailureScreen> {
               addVerticalSpacing(20),
               Text(getSignUpDisplayErrorMessage(widget.message),
                   style: kBoldTextStyle.copyWith(
-                    fontSize: 20.sp,
+                    fontSize: 20,
                     color: Colors.redAccent,
                   )),
             ],

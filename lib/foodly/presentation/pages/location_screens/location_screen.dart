@@ -1,7 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:foodly_clean_arc/foodly/presentation/manager/provider/location_provider/location_provider.dart';
 import 'package:foodly_clean_arc/foodly/presentation/pages/welcome_screens/mainscreen.dart';
@@ -12,7 +11,7 @@ import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:provider/provider.dart';
 
 class LocationScreen extends StatefulWidget {
-  const LocationScreen({Key? key}) : super(key: key);
+  const LocationScreen({super.key});
 
   @override
   State<LocationScreen> createState() => _LocationScreenState();
@@ -60,7 +59,7 @@ class _LocationScreenState extends State<LocationScreen> {
           ),
         ),
         body: Padding(
-          padding: EdgeInsets.only(left: 20.0.w, right: 20.0.w),
+          padding: const EdgeInsets.only(left: 20.0, right: 20.0),
           child: ListView(
             children: [
               addVerticalSpacing(24),
@@ -100,8 +99,8 @@ class _LocationScreenState extends State<LocationScreen> {
               Container(
                 width: MediaQuery.of(context).size.width,
                 height: 70,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(20.r))),
+                decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(20))),
                 child: TextFormField(
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   controller: addressController,
@@ -117,18 +116,18 @@ class _LocationScreenState extends State<LocationScreen> {
                           color: kGreenColor,
                           width: 3,
                           style: BorderStyle.solid),
-                      borderRadius: BorderRadius.circular(8.r),
+                      borderRadius: BorderRadius.circular(8),
                     ),
                     border: OutlineInputBorder(
                       borderSide: BorderSide(
                           width: 1,
                           style: BorderStyle.solid,
                           color: kGreenColor.withOpacity(0.5)),
-                      borderRadius: BorderRadius.circular(8.r),
+                      borderRadius: BorderRadius.circular(8),
                     ),
                     hintText: 'Enter address manually',
-                    contentPadding: EdgeInsets.symmetric(
-                        vertical: 5.0.h, horizontal: 20.0.w),
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: 5.0, horizontal: 20.0),
                   ),
                 ),
               ),

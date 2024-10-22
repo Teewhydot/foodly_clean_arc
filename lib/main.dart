@@ -1,6 +1,5 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodly_clean_arc/firebase_options.dart';
 import 'package:foodly_clean_arc/foodly/presentation/manager/provider/location_provider/location_provider.dart';
 import 'package:foodly_clean_arc/foodly/presentation/pages/welcome_screens/welcome_screen.dart';
@@ -18,15 +17,13 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ScreenUtilInit(
-          designSize: const Size(375, 812),
-          builder: (context, _) => const Foodly()),
+      home: Foodly(),
     );
   }
 }

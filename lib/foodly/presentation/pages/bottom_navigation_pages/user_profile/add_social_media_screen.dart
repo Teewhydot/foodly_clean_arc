@@ -4,7 +4,7 @@ import 'package:foodly_clean_arc/foodly/presentation/widgets/constants.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/reused_widgets/reusable_button.dart';
 
 class AddSocialMedia extends StatelessWidget {
-  const AddSocialMedia({Key? key}) : super(key: key);
+  const AddSocialMedia({super.key});
 
   @override
   Widget build(BuildContext context) {

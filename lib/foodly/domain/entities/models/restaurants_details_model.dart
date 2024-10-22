@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodly_clean_arc/foodly/domain/entities/models/featured_partners.dart';
 import 'package:foodly_clean_arc/foodly/domain/entities/models/sea_foods.dart';
 import 'package:foodly_clean_arc/foodly/presentation/widgets/constants.dart';
@@ -16,14 +15,14 @@ class RestaurantDetails extends StatelessWidget {
   final String restaurantDeliveryFee;
 
   const RestaurantDetails({
-    Key? key,
+    super.key,
     required this.restaurantName,
     required this.restaurantImage,
     required this.restaurantLocation,
     required this.restaurantRating,
     required this.restaurantTime,
     required this.restaurantDeliveryFee,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +73,7 @@ class RestaurantDetails extends StatelessWidget {
           scrollDirection: Axis.vertical,
           children: [
             SizedBox(
-              height: 280.h,
+              height: 280,
               child: Stack(
                 children: [
                   CustomCarouselWidget(
@@ -181,14 +180,14 @@ class RestaurantDetails extends StatelessWidget {
                       Text(
                         'Featured partners',
                         style: kTitleTextStyle.copyWith(
-                          fontSize: 23.sp,
+                          fontSize: 23,
                         ),
                       ),
                     ],
                   ),
                   addVerticalSpacing(20),
                   SizedBox(
-                    height: 320.h,
+                    height: 320,
                     child: ListView.builder(
                       key: const PageStorageKey('best-picks'),
                       itemCount: featuredPartners.length,
@@ -215,14 +214,14 @@ class RestaurantDetails extends StatelessWidget {
                       Text(
                         'Most popular',
                         style: kTitleTextStyle.copyWith(
-                          fontSize: 23.sp,
+                          fontSize: 23,
                         ),
                       ),
                     ],
                   ),
                   addVerticalSpacing(20),
                   SizedBox(
-                    height: 320.h,
+                    height: 320,
                     child: ListView.builder(
                       key: const PageStorageKey('featured_partners'),
                       itemCount: featuredPartners.length,
@@ -251,7 +250,7 @@ class RestaurantDetails extends StatelessWidget {
                         Text(
                           'Sea foods',
                           style: kTitleTextStyle.copyWith(
-                            fontSize: 23.sp,
+                            fontSize: 23,
                           ),
                         ),
                       ],
